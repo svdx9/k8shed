@@ -1,4 +1,3 @@
-# Updated to v1 (Stable)
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
@@ -7,4 +6,4 @@ metadata:
 spec:
   interval: 12h
   type: oci
-  url: oci://ghcr.io/nginxinc/charts
+  url: oci://ghcr.io/nginx/charts
