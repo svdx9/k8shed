@@ -1,0 +1,8 @@
+machine:
+  # 1. Apply the Label
+  nodeLabels:
+    node-role.kubernetes.io/edge: ""
+
+  # 2. Apply the Taint
+  nodeTaints:
+    node-role.kubernetes.io/edge: "NoSchedule"
