@@ -1,4 +1,5 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# Updated to v2 (Stable)
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: nginx-gateway-fabric
