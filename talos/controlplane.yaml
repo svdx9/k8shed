@@ -119,8 +119,7 @@ machine:
             #     allowedKubernetesNamespaces:
             #         - kube-system
     # Configures the node labels for the machine.
-    nodeLabels:
-        node.kubernetes.io/exclude-from-external-load-balancers: ""
+    nodeLabels: {}
         # # Provides machine specific control plane configuration options.
         # # ControlPlane definition example.
         # controlPlane:
