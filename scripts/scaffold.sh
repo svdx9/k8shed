@@ -61,6 +61,7 @@ init_flux() {
         "GITHUB_USER:<your-username>"
         "REPO_NAME:<your-repo-name>"
         "CLUSTER_PATH:<your-cluster-path>"
+        "SOPS_AGE_KEY_PATH:</path/to/age.key>"
     )
 
     for entry in "${required_envs[@]}"; do
@@ -71,6 +72,12 @@ init_flux() {
             exit 1
         fi
     done
+
+    # need to import sops key
+    if [ ! -f "$SOPS_AGE_KEY_PATH" ]; then
+        echo "❌ SOPS_AGE_KEY_PATH file not found: $SOPS_AGE_KEY_PATH"
+        exit 1
+    fi
 
     # --- Bootstrap Execution ---
     echo "⚙️  Running Flux Bootstrap for $CLUSTER_PATH..."
@@ -83,6 +90,11 @@ init_flux() {
     --components-extra=image-reflector-controller,image-automation-controller \
     --personal
 
+
+    kubectl -n flux-system create secret generic sops-age \
+        --from-file=age.agekey="$SOPS_AGE_KEY_PATH" \
+        --dry-run=client -o yaml | kubectl apply -f -
+
     # --- Post-Bootstrap Sync ---
     echo "📥 Syncing local repository..."
     git pull --rebase
@@ -93,6 +105,7 @@ init_flux() {
     echo "   git add ."
     echo "   git commit -m 'chore: initialize directory structure'"
     echo "   git push"
+
 }
 
 init_flux
