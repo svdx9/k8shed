@@ -5,6 +5,7 @@ metadata:
   name: nginx-gateway-fabric
   namespace: flux-system
 spec:
+  releaseName: nginx-gateway-fabric
   interval: 30m
   chart:
     spec:
