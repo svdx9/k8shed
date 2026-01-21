@@ -19,7 +19,7 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: wildcard-c-va1-uk-tls
+            name: wildcard-va1-uk-tls
       allowedRoutes:
         namespaces:
           from: All

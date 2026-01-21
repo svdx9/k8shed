@@ -4,7 +4,7 @@ metadata:
   name: wildcard-c-va1-uk
   namespace: ingress-gateway
 spec:
-  secretName: wildcard-c-va1-uk-tls
+  secretName: wildcard-va1-uk-tls
   issuerRef:
     name: letsencrypt-dns
     kind: ClusterIssuer
