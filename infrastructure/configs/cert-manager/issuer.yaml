@@ -5,8 +5,8 @@ metadata:
 spec:
   acme:
     email: admin@va1.uk
-    # server: https://acme-v02.api.letsencrypt.org/directory
-    server: https://acme-staging-v02.api.letsencrypt.org/directory # staging
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory # staging
     privateKeySecretRef:
       name: letsencrypt-dns
     solvers:
