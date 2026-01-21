@@ -15,6 +15,9 @@ spec:
         name: nginx-gateway-fabric
         namespace: flux-system
       interval: 12h
+  targetNamespace: nginx-gateway
+  install:
+    createNamespace: true
   values:
     service:
       # This creates the Service LoadBalancer to get an IP from MetalLB
