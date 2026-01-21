@@ -20,6 +20,7 @@ spec:
   install:
     createNamespace: true
   values:
+    clusterDomain: cluster.local
     service:
       # This creates the Service LoadBalancer to get an IP from MetalLB
       type: LoadBalancer
